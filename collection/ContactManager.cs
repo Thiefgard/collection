@@ -35,7 +35,11 @@ namespace collection
 
             while(!sr.EndOfStream)
             {
-                this.AddEntryFromFileLine(sr.ReadLine());
+                var line = sr.ReadLine();
+                if (line.Trim() == "")
+                    break;
+
+                this.AddEntryFromFileLine(line);
             }
             return true;
         }
